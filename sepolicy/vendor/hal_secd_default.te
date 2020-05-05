@@ -1,0 +1,38 @@
+# hal_secd_default.te
+type hal_secd_default, domain;
+type hal_secd_default_exec, exec_type, vendor_file_type, file_type;
+
+hal_server_domain(hal_secd_default, hal_secd)
+init_daemon_domain(hal_secd_default)
+add_hwservice(hal_secd_default, hal_secd_hwservice);
+
+binder_call(hal_secd_default, hal_idd_default)
+
+unix_socket_connect(hal_secd_default, tad, tad)
+
+get_prop(hal_secd_default, vendor_tee_listener_prop)
+
+allow hal_secd_default hal_idd_hwservice:hwservice_manager { find };
+
+# Allow to preload libta_drm_ext for secd
+#allow init hal_secd_default:process { noatsecure };
+
+# /dev/ion
+allow hal_secd_default ion_device:chr_file r_file_perms;
+
+# /dev/qseecom
+allow hal_secd_default tee_device:chr_file rw_file_perms;
+
+# /persist/pc/
+allow hal_secd_default simpin_cache_data_file:dir rw_dir_perms;
+allow hal_secd_default simpin_cache_data_file:file create_file_perms;
+
+# /persist
+allow hal_secd_default persist_file:dir r_dir_perms;
+
+# /data/vendor
+allow hal_secd_default mnt_vendor_file:dir rw_dir_perms;
+allow hal_secd_default mnt_vendor_file:file create_file_perms;
+
+# /mnt/vendor/persist/credmgr.db
+allow hal_secd_default credmgrd_vendor_data_file:file create_file_perms;

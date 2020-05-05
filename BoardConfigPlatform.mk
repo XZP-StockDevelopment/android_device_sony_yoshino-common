@@ -1,0 +1,202 @@
+#
+# Copyright (C) 2017 The LineageOS Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+include device/sony/common-treble/BoardConfigTreble.mk
+
+PLATFORM_PATH := device/sony/yoshino-common
+
+### BOARD
+TARGET_BOARD_PLATFORM := msm8998
+TARGET_BOARD_PLATFORM_GPU := qcom-adreno540
+
+### PROCESSOR
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 :=
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := cortex-a73
+TARGET_CPU_SMP := true
+
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv8-a
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := generic
+TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a73
+
+ENABLE_CPUSETS := true
+
+### KERNEL
+TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_VERSION := 4.4
+TARGET_KERNEL_SOURCE  := kernel/sony/msm8998
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+
+# Taken from unpacked stock boot.img / README_Xperia in Kernel source
+BOARD_KERNEL_CMDLINE += user_debug=31
+BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x37
+BOARD_KERNEL_CMDLINE += ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
+BOARD_KERNEL_CMDLINE += sched_enable_hmp=1
+BOARD_KERNEL_CMDLINE += sched_enable_power_aware=1
+BOARD_KERNEL_CMDLINE += service_locator.enable=1
+BOARD_KERNEL_CMDLINE += swiotlb=2048
+BOARD_KERNEL_CMDLINE += androidboot.configfs=true
+BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a800000.dwc3
+BOARD_KERNEL_CMDLINE += loop.max_part=7
+BOARD_KERNEL_CMDLINE += zram.backend=z3fold
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+
+# See README_Xperia in Kernel Source
+BOARD_KERNEL_BASE        := 0x00000000
+BOARD_KERNEL_PAGESIZE    := 4096
+BOARD_RAMDISK_OFFSET     := 0x01000000
+
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+
+### PARTITIONS
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_ROOT_EXTRA_FOLDERS := oem-modem
+
+# Build ext4 tools - system/vold
+TARGET_USERIMAGES_USE_EXT4 := true
+
+### DEXPREOPT
+# Enable dexpreopt for everything to speed boot time
+ifeq ($(HOST_OS),linux)
+  ifneq ($(TARGET_BUILD_VARIANT),eng)
+      WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := false
+      WITH_DEXPREOPT := true
+  endif
+endif
+
+### DISPLAY
+MAX_EGL_CACHE_KEY_SIZE := 12*1024
+MAX_EGL_CACHE_SIZE := 2048*1024
+
+# Native sdfat (exfat) support - system/vold
+TARGET_EXFAT_DRIVER := sdfat
+
+# Init
+TARGET_INIT_VENDOR_LIB := //$(PLATFORM_PATH):libinit_yoshino
+TARGET_RECOVERY_DEVICE_MODULES := libinit_yoshino
+
+### AUDIO
+# BOARD_SUPPORTS_QAHW := true
+BOARD_SUPPORTS_SOUND_TRIGGER := true
+BOARD_USES_SRS_TRUEMEDIA := false
+
+DOLBY_ENABLE := false
+DTS_CODEC_M_ := false
+
+MM_AUDIO_ENABLED_FTM := true
+MM_AUDIO_ENABLED_SAFX := true
+
+TARGET_USES_QCOM_MM_AUDIO := true
+
+USE_CUSTOM_AUDIO_POLICY := 1
+USE_XML_AUDIO_POLICY_CONF := 1
+
+USE_LEGACY_AUDIO_DAEMON := false
+USE_LEGACY_AUDIO_MEASUREMENT := false
+
+### CAMERA
+BOARD_QTI_CAMERA_32BIT_ONLY := true
+TARGET_USES_MEDIA_EXTENSIONS := true
+USE_DEVICE_SPECIFIC_CAMERA := true
+
+# frameworks/av/camera/Android.mk
+TARGET_USES_QTI_CAMERA_DEVICE := true
+
+### WIFI
+BOARD_HAS_QCOM_WLAN := true
+BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_qcwcn
+BOARD_WLAN_DEVICE := qcwcn
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
+HOSTAPD_VERSION := VER_0_8_X
+# This doesn't work because wifi driver is a background task
+# we would need to wait till the fwpath is ready
+# WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
+# WIFI_DRIVER_MODULE_NAME := "wlan"
+WIFI_DRIVER_FW_PATH_AP  := "ap"
+WIFI_DRIVER_FW_PATH_P2P := "p2p"
+WIFI_DRIVER_FW_PATH_STA := "sta"
+# If built into kernel /sys/kernel/boot_wlan/boot_wlan 
+# with 1 and 0 should be used
+WIFI_DRIVER_STATE_CTRL_PARAM := "/dev/wlan"
+WIFI_DRIVER_STATE_ON := ON
+WIFI_DRIVER_STATE_OFF := OFF
+WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+WIFI_DRIVER_OPERSTATE_PATH := "/sys/class/net/wlan0/operstate"
+WIFI_HIDL_FEATURE_DISABLE_AP_MAC_RANDOMIZATION := true
+
+### BLUETOOTH
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(PLATFORM_PATH)/bluetooth
+BOARD_HAVE_BLUETOOTH := true
+# Build libbthost_if
+TARGET_USE_QTI_BT_STACK := true
+# We have a rome soc (libbt-vendor)
+# Support libbtnv.so
+QCOM_BT_USE_BTNV := true
+
+### RIL
+TARGET_RIL_VARIANT := caf
+TARGET_PER_MGR_ENABLED := true
+TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
+TARGET_USES_OLD_MNC_FORMAT := true
+PROTOBUF_SUPPORTED := true
+
+### TIMESERVICE
+BOARD_USES_QC_TIME_SERVICES := true
+
+### POWER HAL
+TARGET_USES_INTERACTION_BOOST := true
+
+### HIDL
+DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/manifest.xml
+DEVICE_MATRIX_FILE := $(PLATFORM_PATH)/compatibility_matrix.xml
+
+# vendor/qcom/opensource/cryptfs_hw
+TARGET_HW_DISK_ENCRYPTION := true
+
+### SEPOLICY
+BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy/vendor
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(PLATFORM_PATH)/sepolicy/private
+
+### RECOVERY
+TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/ramdisk/fstab.recovery
+
+### SYSTEM PROPS
+# Platform-specific props, add more in device if needed
+TARGET_SYSTEM_PROP += $(PLATFORM_PATH)/system.prop
+
+### VENDOR SECURITY PATCH LEVEL
+VENDOR_SECURITY_PATCH := 2019-09-01
+
+# APEX IMAGE
+DEXPREOPT_GENERATE_APEX_IMAGE := true
+
+### ALLOW VENDOR FILE OVERRIDE
+BUILD_BROKEN_DUP_RULES := true
+
+ifeq ($(WITH_TWRP),true)
+-include $(PLATFORM_PATH)/twrp.mk
+endif
