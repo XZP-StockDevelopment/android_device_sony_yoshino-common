@@ -151,6 +151,5 @@ void vendor_load_properties() {
 
     LOG(INFO) << "Loading properties from /ocm/system-properties/config.prop";
     load_properties_from_file("/ocm/system-properties/config.prop", NULL);
-
     target_load_properties();
 }
