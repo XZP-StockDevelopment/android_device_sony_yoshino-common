@@ -18,3 +18,4 @@ allow kobjeventd sysfs_switch_lid:file r_file_perms;
 unix_socket_connect(kobjeventd, property, init)
 allow kobjeventd property_socket:sock_file { write };
 allow kobjeventd vendor_cover_state_prop:property_service { set };
+allow kobjeventd vendor_file:dir { read open };
