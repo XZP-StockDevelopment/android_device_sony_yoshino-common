@@ -21,10 +21,10 @@ endif
 ifeq ($(TARGET_DEVICE),poplar_dsds)
 	$(hide) ln -sf amss_fsg_poplar_dsds_tar.mbn $@/default
 endif
-ifeq ($(TARGET_DEVICE),maple)
+ifeq ($(IS_MAPLE_DSDS),false)
 	$(hide) ln -sf amss_fsg_maple_tar.mbn $@/default
 endif
-ifeq ($(TARGET_DEVICE),maple_dsds)
+ifeq ($(IS_MAPLE_DSDS),true)
 	$(hide) ln -sf amss_fsg_maple_dsds_tar.mbn $@/default
 endif
 
