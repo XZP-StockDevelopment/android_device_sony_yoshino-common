@@ -2,4 +2,4 @@
 
 allow cnd system_app:binder { transfer };
 allow cnd system_app:binder { call };
-allow cnd object_r:file { read };
+allow cnd wifi_prop:file { read };
