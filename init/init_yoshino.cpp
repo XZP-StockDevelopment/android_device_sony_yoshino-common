@@ -128,7 +128,7 @@ void vendor_load_properties() {
     // Load the carrier-independent props
     LOG(INFO) << "Loading properties from /ocm/system-properties/cust.prop";
     load_properties_from_file("/ocm/system-properties/cust.prop", NULL);
-/*
+
     // Get the active customization id from miscTA
     std::string cust_id = ta_get_cust_active();
 
@@ -142,12 +142,11 @@ void vendor_load_properties() {
         LOG(INFO) << "Active customization detected: " << cust_id;
 
         std::stringstream ss;
-        ss << "/ocm/system-properties/" << cust_id << "/config.prop";    
+        ss << "/ocm/system-properties/" << cust_id << "/config.prop";
         std::string cust_path = ss.str();
         LOG(INFO) << "Loading properties from " << cust_path;
         load_properties_from_file(cust_path.c_str(), NULL);
     }
- */
 
     LOG(INFO) << "Loading properties from /ocm/system-properties/config.prop";
     load_properties_from_file("/ocm/system-properties/config.prop", NULL);
