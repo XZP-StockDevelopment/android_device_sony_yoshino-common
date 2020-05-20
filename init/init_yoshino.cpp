@@ -123,10 +123,12 @@ void property_override(char const prop[], char const value[])
 
 void vendor_load_properties() {
 
-    LOG(INFO) << "Loading region- and carrier-specific properties from /ocm.";
+    std::string LOG_TAG = "init_yoshino.cpp : ";
+
+    LOG(INFO) << LOG_TAG << "Loading region- and carrier-specific properties from /ocm.";
 
     // Load the carrier-independent props
-    LOG(INFO) << "Loading properties from /ocm/system-properties/cust.prop";
+    LOG(INFO) << LOG_TAG << "Loading properties from /ocm/system-properties/cust.prop";
     load_properties_from_file("/ocm/system-properties/cust.prop", NULL);
 
     // Get the active customization id from miscTA
@@ -134,21 +136,21 @@ void vendor_load_properties() {
 
     // If no customization is set, load the basic set of config props.
     if (cust_id.empty()) {
-        LOG(INFO) << "No active customization detected.";
-        LOG(INFO) << "Loading properties from /ocm/system-properties/config.prop";
+        LOG(INFO) << LOG_TAG << "No active customization detected.";
+        LOG(INFO) << LOG_TAG << "Loading properties from /ocm/system-properties/config.prop";
         load_properties_from_file("/ocm/system-properties/config.prop", NULL);
     } else {
     // Otherwise, load the carrier-specific ones (these also contain the basic ones).
-        LOG(INFO) << "Active customization detected: " << cust_id;
+        LOG(INFO) << LOG_TAG << "Active customization detected: " << cust_id;
 
         std::stringstream ss;
         ss << "/ocm/system-properties/" << cust_id << "/config.prop";
         std::string cust_path = ss.str();
-        LOG(INFO) << "Loading properties from " << cust_path;
+        LOG(INFO) << LOG_TAG << "Loading properties from " << cust_path;
         load_properties_from_file(cust_path.c_str(), NULL);
     }
 
-    LOG(INFO) << "Loading properties from /ocm/system-properties/config.prop";
-    load_properties_from_file("/ocm/system-properties/config.prop", NULL);
-    target_load_properties();
+    //LOG(INFO) << LOG_TAG << "Loading properties from /ocm/system-properties/config.prop";
+    //load_properties_from_file("/ocm/system-properties/config.prop", NULL);
+    //target_load_properties();
 }
