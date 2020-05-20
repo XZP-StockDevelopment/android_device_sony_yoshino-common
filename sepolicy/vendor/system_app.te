@@ -18,3 +18,6 @@ allow system_app semc_version_prop:file { getattr open read };
 # Allow com.android.settings to read zram info via sysfs
 allow system_app sysfs_zram:dir { search };
 allow system_app sysfs_zram:file { r_file_perms };
+
+#Allow CNE
+allow system_app cne_service:service_manager { add };
