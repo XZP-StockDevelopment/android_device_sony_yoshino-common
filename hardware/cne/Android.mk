@@ -17,7 +17,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := CneApp
-LOCAL_SRC_FILES := ims/CneApp.apk
+LOCAL_SRC_FILES := CneApp.apk
 LOCAL_CERTIFICATE := platform
 LOCAL_MODULE_TAGS := optional
 LOCAL_PRODUCT_MODULE := true
