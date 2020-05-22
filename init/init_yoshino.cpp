@@ -125,6 +125,9 @@ void vendor_load_properties() {
 
     std::string LOG_TAG = "init_yoshino.cpp : ";
 
+    // Wait for up to 2 seconds for /ocm to be ready before we proceed (it should take much less...)
+    WaitForProperty("ro.boot.oem.ready", "true", 2s);
+
     LOG(INFO) << LOG_TAG << "Loading region- and carrier-specific properties from /ocm.";
 
     // Load the carrier-independent props

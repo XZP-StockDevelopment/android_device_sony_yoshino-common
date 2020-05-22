@@ -12,6 +12,10 @@ PRODUCT_PACKAGES += \
     libvolumelistener \
     bthost_if
 
+# MODEM
+PRODUCT_PACKAGES += \
+    init.sony.modem.sh
+
 # IPACM
 PRODUCT_PACKAGES += \
     ipacm \
