@@ -17,7 +17,3 @@ include device/sony/yoshino-common/hardware/modem/Android.mk
 PRODUCT_PACKAGES += \
 	dump_miscta \
 	ta_cust_version
-
-PRODUCT_PROPERTY_OVERRIDES += \
-	persist.vendor.radio.calls.on.ims=1 \
-	persist.radio.calls.on.ims=1
