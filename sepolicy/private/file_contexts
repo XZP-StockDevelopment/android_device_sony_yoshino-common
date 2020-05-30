@@ -1,2 +1,3 @@
 # DPM
 /system/bin/dpmd                                u:object_r:dpmd_exec:s0
+#/vendor/bin/cnd                                 u:object_r:cnd_exec:s0
