@@ -1,0 +1,22 @@
+#allow vendor_init camera_data:dir { create };
+
+
+allow vendor_pd_mapper vendor_file:dir { read };
+
+
+allow adsprpcd vendor_file:dir { read };
+
+
+allow cnd wifi_prop:file { read };
+
+
+allow location wifi_prop:file { read };
+
+
+set_prop(system_server, theme_prop);
+
+
+allow dataservice_app radio_data_file:dir { getattr };
+
+
+#allow system_app cne_service:service_manager { add };
