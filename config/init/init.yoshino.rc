@@ -308,7 +308,14 @@ on early-boot
     restorecon /sys/devices/virtual/input/clearpad/fwinfo
 
 on boot
+
+# Tap to wake
+    chown system system /sys/devices/virtual/input/clearpad/wakeup_gesture
+    chmod 0660 /sys/devices/virtual/input/clearpad/wakeup_gesture
+
+
     start vendor.rmt_storage
+
 
     ####Regionalization config and prop files####
     chmod 0644 /persist/speccfg/spec
