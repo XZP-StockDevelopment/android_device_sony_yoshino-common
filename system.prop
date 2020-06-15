@@ -58,10 +58,18 @@ vendor.display.enable_default_color_mode=1
 
 # HWComposer
 debug.sf.enable_hwc_vds=1
-debug.sf.hw=1
+debug.egl.hw=0
+debug.sf.hw=0
 debug.gralloc.enable_fb_ubwc=1
 debug.sf.latch_unsignaled=1
 vendor.display.perf_hint_window=50
+persist.demo.hdmirotationlock=false
+persist.sys.sf.native_mode=0
+ro.surface_flinger.has_wide_color_display=true
+ro.surface_flinger.has_HDR_display=true
+ro.surface_flinger.use_color_management=true
+ro.surface_flinger.wcg_composition_dataspace=143261696
+
 
 # Display default color mode enable
 vendor.display.enable_default_color_mode=1
