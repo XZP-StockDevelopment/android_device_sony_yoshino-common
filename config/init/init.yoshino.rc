@@ -541,10 +541,10 @@ on property:persist.vendor.battery.charge=1
     write /sys/class/power_supply/battery/lrc_enable 1
 
 # Set touch sleep mode on backlight_on
-on property:vendor.backlight_on=0
-    write /sys/devices/virtual/input/clearpad/force_sleep 2
-on property:vendor.backlight_on=1
-    write /sys/devices/virtual/input/clearpad/force_sleep 0
+#on property:vendor.backlight_on=0
+#    write /sys/devices/virtual/input/clearpad/force_sleep 2
+#on property:vendor.backlight_on=1
+#    write /sys/devices/virtual/input/clearpad/force_sleep 0
 
 on property:sys.boot_completed=1
     # Partly from init.qcom.post_boot.sh

@@ -43,3 +43,8 @@ type sysfs_ufs, fs_type, sysfs_type;
 
 # vendor
 type ffu_firmware_file, file_type, vendor_file_type;
+
+# Camera
+type hal_camera_somc_socket, file_type;
+type sony_camera_device, file_type;
+type sysfs_camera, fs_type, sysfs_type;
