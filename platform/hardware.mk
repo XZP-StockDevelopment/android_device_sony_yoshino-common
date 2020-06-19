@@ -5,7 +5,16 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8998 \
     memtrack.msm8998 \
     libdisplayconfig \
-    liboverlay
+    libhwc2on1adapter \
+    libgenlock \
+    liboverlay \
+    libtinyxml \
+    libqdMetaData \
+    libqdMetaData.system \
+    libvulkan
+
+PRODUCT_PACKAGES += \
+    vendor.display.config@1.0
 
 ### AUDIO
 PRODUCT_PACKAGES += \
@@ -19,7 +28,7 @@ PRODUCT_PACKAGES += \
     libipanat \
     liboffloadhal
 
-# DISPLAY
+# Live  DISPLAY
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.0-service-sdm
 
