@@ -233,7 +233,6 @@
         </interface>
     </hal>
     <hal format="hidl">
-    <hal format="hidl">
         <name>android.hardware.radio.deprecated</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
