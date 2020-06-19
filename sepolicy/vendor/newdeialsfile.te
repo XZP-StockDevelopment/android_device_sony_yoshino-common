@@ -20,3 +20,5 @@ allow dataservice_app radio_data_file:dir { getattr };
 
 
 #allow system_app cne_service:service_manager { add };
+
+allow ssr_dumper system_data_file:dir { write };
