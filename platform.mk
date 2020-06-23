@@ -83,9 +83,41 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@4.0-impl \
     android.hardware.audio.effect@2.0-service \
     android.hardware.soundtrigger@2.2-impl \
-    android.hardware.soundtrigger@2.0-service
+    android.hardware.soundtrigger@2.0-service \
     libvolumelistener \
     bthost_if
+
+### AUDIO
+PRODUCT_PACKAGES += \
+    audio.r_submix.default \
+    audio.usb.default
+
+PRODUCT_PACKAGES += \
+    audio.a2dp.default \
+    audio.bluetooth.default \
+    android.hardware.bluetooth.a2dp@1.0 \
+    android.hardware.bluetooth.audio@2.0 \
+    android.hardware.bluetooth.audio@2.0-impl
+
+
+### AUDIO
+# For audio.primary
+PRODUCT_PACKAGES += \
+    libaudio-resampler \
+    libaudioroute \
+    libaudioutils \
+    libtinyalsa \
+    libtinycompress_vendor \
+    tinymix
+
+# Audio effects
+PRODUCT_PACKAGES += \
+    libqcomvisualizer \
+    libqcomvoiceprocessing \
+    libqcomvoiceprocessingdescriptors \
+    libqcompostprocbundle \
+    libvolumelistener
+
 
 # Audio policy
 PRODUCT_COPY_FILES += \
@@ -135,6 +167,16 @@ PRODUCT_COPY_FILES += \
     $(PLATFORM_PATH)/config/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
     $(PLATFORM_PATH)/config/media/media_profiles_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml
 
+### BLUETOOTH
+PRODUCT_PACKAGES += \
+    libbt-vendor
+
+
+### CAMERA
+#PRODUCT_PACKAGES += \
+    Snap
+
+
 # CAMERA
 PRODUCT_PACKAGES += \
     android.hardware.camera.common@1.0-impl \
@@ -153,6 +195,11 @@ PRODUCT_PACKAGES += \
 # COVER
 PRODUCT_PACKAGES += \
     FlipFlap
+
+### CHARGER
+PRODUCT_PACKAGES += \
+    charger_res_images
+
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -225,12 +272,26 @@ PRODUCT_PACKAGES += \
 	qtiImsInCallUi \
 	ConfURIDialer
 
+
+# IMS
+PRODUCT_PACKAGES += \
+    ims-ext-common_system
+
+PRODUCT_BOOT_JARS += \
+    ims-ext-common_system
+
+
 # IPACM
 PRODUCT_PACKAGES += \
     ipacm \
     IPACM_cfg.xml \
     libipanat \
     liboffloadhal
+
+# IPV6
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes
 
 # Keymaster
 PRODUCT_PACKAGES += \
@@ -259,6 +320,21 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service
 
+### MEDIA
+PRODUCT_PACKAGES += \
+    libqdMetaData.system
+
+### NETMGR
+PRODUCT_PACKAGES += \
+    librmnetctl
+
+### NFC
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
+    NfcNci \
+    Tag
+
+
 # NFC
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.1-service
@@ -278,6 +354,21 @@ PRODUCT_COPY_FILES += \
     $(PLATFORM_PATH)/config/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
     $(PLATFORM_PATH)/config/nfc/libnfc-nxp-octopus.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp-octopus.conf \
     $(PLATFORM_PATH)/config/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
+
+
+### OMX
+PRODUCT_PACKAGES += \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libOmxVdecHevc \
+    libOmxVenc \
+    libc2dcolorconvert \
+    libmm-omxcore \
+    libstagefrighthw
 
 # POWER
 PRODUCT_PACKAGES += \
@@ -300,6 +391,18 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
 
+### RCS
+PRODUCT_PACKAGES += \
+    rcs_service_aidl \
+    rcs_service_aidl.xml \
+    rcs_service_api \
+    rcs_service_api.xml
+
+### RIL
+PRODUCT_PACKAGES += \
+    libprotobuf-cpp-full
+
+
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -311,6 +414,23 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     android.hardware.sensors@1.0-service \
     libsensorndkbridge
+
+### SYSTEM LIBS
+PRODUCT_PACKAGES += \
+    libavservices_minijail \
+    libjson \
+    libion \
+    libminijail \
+    libstdc++.vendor \
+    libtinyxml \
+    libxml2
+
+### TELEPHONY
+PRODUCT_PACKAGES += \
+    telephony-ext
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext
 
 # THERMAL
 PRODUCT_PACKAGES += \
@@ -337,6 +457,12 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service
 
+
+### VNDK
+PRODUCT_PACKAGES += \
+    vndk_package \
+    vndk-sp
+
 # VR
 PRODUCT_PACKAGES += \
     android.hardware.vr@1.0-impl \
@@ -358,6 +484,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.display.config@1.3
 
+### WIFI
+PRODUCT_PACKAGES += \
+    hostapd \
+    libwpa_client \
+    p2p_supplicant.conf \
+    wificond \
+    wpa_supplicant \
+    wpa_supplicant.conf
+
 # WIFI
 PRODUCT_COPY_FILES += \
     $(PLATFORM_PATH)/config/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
@@ -368,6 +503,15 @@ PRODUCT_COPY_FILES += \
 # WIFIDISPLAY
 PRODUCT_COPY_FILES += \
     $(PLATFORM_PATH)/config/wfd/wfdconfig.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/wfdconfig.xml
+
+# WIFI DISPLAY
+PRODUCT_PACKAGES += \
+    libaacwrapper \
+    libnl \
+    libmediaextractorservice
+
+PRODUCT_BOOT_JARS += \
+    WfdCommon
 
 # Include MODEM (yoshino-common/hardware/modem)
 include device/sony/yoshino-common/hardware/modem/Android.mk
