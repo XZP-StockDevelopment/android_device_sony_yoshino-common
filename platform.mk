@@ -513,13 +513,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     WfdCommon
 
-# Include MODEM (yoshino-common/hardware/modem)
-include device/sony/yoshino-common/hardware/modem/Android.mk
-
-PRODUCT_PACKAGES += \
-	dump_miscta \
-	ta_cust_version
-
 # Modified init.qcom.early_boot.sh
 PRODUCT_COPY_FILES += \
     $(PLATFORM_PATH)/config/init/init.qcom.early_boot.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qcom.early_boot.sh
