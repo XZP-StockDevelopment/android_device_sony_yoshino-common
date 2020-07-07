@@ -3,4 +3,4 @@ diag_use(cnd)
 binder_call(cnd, radio)
 get_prop(cnd, wifi_prop)
 
-allow cnd system_app:binder { transfer };
+allow cnd system_app:binder { transfer call };
