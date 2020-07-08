@@ -200,6 +200,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     charger_res_images
 
+# Connectivity Engine support (CNE)
+PRODUCT_PACKAGES += \
+    cneapiclient \
+    com.quicinc.cne \
+    services-ext
 
 # DRM
 PRODUCT_PACKAGES += \
