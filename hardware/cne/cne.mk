@@ -15,6 +15,7 @@
 PRODUCT_PACKAGES += \
 	CneApp \
 	QtiSystemService \
+	IWlanService \
 	cnd.rc
 
 BOARD_SEPOLICY_DIRS += device/sony/yoshino-common/hardware/cne/sepolicy
