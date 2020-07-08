@@ -223,9 +223,16 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-service
 
 
-# GNSS
+# GPS / Location
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.1
+    android.hardware.gnss@2.0-impl-qti \
+    android.hardware.gnss@2.0-service-qti \
+    libbatching \
+    libgeofencing \
+    libgnss \
+    libgnsspps \
+    libsynergy_loc_api
+
 
 # GRAPHICS
 PRODUCT_PACKAGES += \
@@ -248,7 +255,8 @@ PRODUCT_PACKAGES += \
     libvulkan
 
 PRODUCT_PACKAGES += \
-    vendor.display.config@1.0
+    vendor.display.config@1.9 \
+    vendor.display.config@1.9_vendor
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -466,10 +474,6 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi@1.1-impl \
     android.hardware.wifi@1.0-service \
     android.hardware.wifi.offload@1.0
-
-# WIFI DISPLAY
-PRODUCT_PACKAGES += \
-    vendor.display.config@1.3
 
 ### WIFI
 PRODUCT_PACKAGES += \
