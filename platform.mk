@@ -265,21 +265,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
 	ims-ext-common_system \
 	ims-ext-common \
-	qti-telephony-utils \
+        ims_ext_common.xml \
+        qti-telephony-utils \
 	qti_telephony_utils.xml \
         qti-telephony-hidl-wrapper \
         qti_telephony_hidl_wrapper.xml \
-	qtiImsInCallUi \
-	ConfURIDialer
-
-
-# IMS
-PRODUCT_PACKAGES += \
-    ims-ext-common_system
 
 PRODUCT_BOOT_JARS += \
     ims-ext-common_system
-
 
 # IPACM
 PRODUCT_PACKAGES += \
@@ -328,27 +321,19 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     librmnetctl
 
-### NFC
-PRODUCT_PACKAGES += \
-    com.android.nfc_extras \
-    NfcNci \
-    Tag
-
-
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.1-service
-
-# NFCSecureElement interface
-PRODUCT_PACKAGES += \
-	android.hardware.secure_element@1.0 \
-	android.hardware.secure_element@1.1
-
-# NFC - SECURE ELEMENT
-PRODUCT_PACKAGES += \
+    android.hardware.nfc@1.1-service \
+    android.hardware.secure_element@1.0 \
+    android.hardware.secure_element@1.1 \
     android.hardware.secure_element@1.0-service \
-    SecureElement
-
+    SecureElement \
+    com.android.nfc_extras \
+    NfcNci \
+    Tag \
+    vendor.nxp.nxpese@1.0:64 \
+    vendor.nxp.nxpnfc@1.0:64
+  
 # NFC
 PRODUCT_COPY_FILES += \
     $(PLATFORM_PATH)/config/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
@@ -385,6 +370,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.broadcastradio@1.0-impl \
     android.hardware.radio@1.2 \
+    android.hardware.radio@1.4 \
     android.hardware.radio.config@1.0
 
 # RENDERSCRIPT
@@ -402,12 +388,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full
 
-
-
 # RIL
 PRODUCT_PACKAGES += \
     libandroid_net
-
 
 # SENSORS
 PRODUCT_PACKAGES += \
@@ -457,8 +440,7 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service
 
-
-### VNDK
+# VNDK
 PRODUCT_PACKAGES += \
     vndk_package \
     vndk-sp
