@@ -42,3 +42,16 @@ genfscon sysfs /devices/soc/800f000.qcom,spmi/spmi-0/spmi0-02/800f000.qcom,spmi:
 genfscon sysfs /devices/soc/c900000.qcom,mdss_rotator/video4linux/video5/name  u:object_r:sysfs_graphics:s0
 
 genfscon sysfs /devices/soc/780000.qcom,msm-core/uio/uio1/name                 u:object_r:sysfs_uio:s0
+
+
+
+# DEBUGFS
+genfscon debugfs /rmt_storage                                   u:object_r:debugfs_rmt_storage:s0
+genfscon debugfs /wlan0/power_stats                             u:object_r:debugfs_wlan_power:s0
+
+# SYSFS
+genfscon sysfs /class/uio                                       u:object_r:sysfs_uio:s0
+genfscon sysfs /devices/mdss_dsi_panel/                         u:object_r:sysfs_dsi_panel:s0
+genfscon sysfs /devices/soc/0.qcom,rmtfs_sharedmem              u:object_r:sysfs_rmtfs:s0
+genfscon sysfs /devices/virtual/input/input6/wakeup_gesture     u:object_r:sysfs_touchpad:s0
+genfscon sysfs /devices/virtual/switch/lid/state                u:object_r:sysfs_switch_lid:s0

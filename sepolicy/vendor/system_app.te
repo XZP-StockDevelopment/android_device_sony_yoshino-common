@@ -18,3 +18,8 @@ allow system_app semc_version_prop:file { getattr open read };
 # Allow com.android.settings to read zram info via sysfs
 allow system_app sysfs_zram:dir { search };
 allow system_app sysfs_zram:file { r_file_perms };
+
+get_prop(system_app, wfd_prop)
+get_prop(system_app, vendor_semc_version_cust_active_prop)
+# dataservice_app
+get_prop(system_app, cnd_vendor_prop)

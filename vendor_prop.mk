@@ -236,3 +236,49 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.dbg.volte_avail_ovr=1 \
     persist.dbg.vt_avail_ovr=1 \
     persist.dbg.wfc_avail_ovr=1
+
+
+### AUDIO
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.config.media_vol_steps=30 \
+    ro.config.vc_call_vol_steps=8
+
+### DRM
+PRODUCT_PROPERTY_OVERRIDES += \
+    drm.service.enabled=true
+
+### IMS
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.service.qti.ims.enabled=1
+
+### RADIO
+# DPM module
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.dpm.feature=0
+
+# Netmgr
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.radio.aosp_usr_pref_sel=true
+
+# Rild
+PRODUCT_PROPERTY_OVERRIDES += \
+    rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so \
+    vendor.rild.libpath=/vendor/lib64/libril-qc-qmi-1.so 
+
+
+# Telephony
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.telephony.call_ring.multiple=false
+
+### SENSORS
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.vendor.sns.daemon=0 \
+    debug.vendor.sns.libsensor1=0 \
+    persist.camera.gyro.disable=0 \
+    persist.vendor.debug.sensors.hal=0
+
+### WFD
+# Property for WfdService.apk to fix WFD for some apps when 
+# hdcp is not provisioned (e.g. unlocked bootloader)
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.debug.wfd.appmonitoring=1

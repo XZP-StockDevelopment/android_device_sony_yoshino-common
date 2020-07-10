@@ -1,0 +1,4 @@
+# netd.te
+
+allow netd mss_config_exec:file { execute entrypoint getattr r_file_perms };
+

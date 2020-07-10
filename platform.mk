@@ -218,6 +218,10 @@ PRODUCT_COPY_FILES += \
     $(PLATFORM_PATH)/config/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
     $(PLATFORM_PATH)/config/media/media_profiles_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml
 
+### Additional native libraries
+PRODUCT_COPY_FILES += \
+    $(PLATFORM_PATH)/config/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+
 ### BLUETOOTH
 PRODUCT_PACKAGES += \
     libbt-vendor
@@ -268,6 +272,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1
 
+# For android_filesystem_config.h permissions
+PRODUCT_PACKAGES += \
+    fs_config_files \
+    fs_config_dirs
+
 # Gatekeeper
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
@@ -316,6 +325,11 @@ PRODUCT_PACKAGES += \
     android.hidl.manager@1.0 \
     android.hidl.manager@1.0-java
 
+# GPS
+PRODUCT_COPY_FILES += \
+    $(PLATFORM_PATH)/config/gps/gps.conf:system/etc/gps.conf \
+    $(PLATFORM_PATH)/config/gps/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf
+
 # HEALTH
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-impl \
@@ -324,6 +338,8 @@ PRODUCT_PACKAGES += \
 # IDC
 PRODUCT_COPY_FILES += \
     $(PLATFORM_PATH)/system/idc/clearpad.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/clearpad.idc
+
+
 
 # IMS
 PRODUCT_PACKAGES += \
@@ -338,6 +354,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     ims-ext-common_system
 
+### INIT
+PRODUCT_COPY_FILES += \
+    $(PLATFORM_PATH)/config/init/init.common.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.common.rc \
+    $(PLATFORM_PATH)/config/init/init.common.qcom.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.common.qcom.rc \
+    $(PLATFORM_PATH)/config/init/init.common.srv.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.common.srv.rc \
+    $(PLATFORM_PATH)/config/init/init.common.ims.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.common.ims.rc
+
 # IPACM
 PRODUCT_PACKAGES += \
     ipacm \
@@ -349,6 +372,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
+
+# ISRC
+PRODUCT_COPY_FILES += \
+    $(PLATFORM_PATH)/config/irsc/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
 # Keymaster
 PRODUCT_PACKAGES += \
@@ -461,6 +488,16 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
     android.hardware.sensors@1.0-service \
     libsensorndkbridge
+
+# SENSORS
+PRODUCT_COPY_FILES += \
+    $(PLATFORM_PATH)/config/sensors/sensors_settings:system/etc/sensors/sensors_settings
+
+# STAGEFRIGHT
+PRODUCT_COPY_FILES += \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
 
 ### SYSTEM LIBS
 PRODUCT_PACKAGES += \

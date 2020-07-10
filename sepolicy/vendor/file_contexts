@@ -143,3 +143,33 @@
 
 ### OEM WORKAROUND
 /ocm                                                            u:object_r:oem_block_device:s0
+
+
+# DEV
+/dev/socket/fpc_oem                                             u:object_r:fpc_socket:s0
+/dev/socket/tad                                                 u:object_r:tad_socket:s0
+/dev/pn553                                                      u:object_r:nfc_device:s0
+
+# DATA
+/data/vendor/etc/wlan.*                                         u:object_r:wifi_vendor_data_file:s0
+/data/vendor/etc/bluetooth.*                                    u:object_r:bluetooth_vendor_data_file:s0
+/data/vendor/fpc(/.*)?                                          u:object_r:fpc_vendor_data_file:s0
+/data/vendor/crashdata(/.*)?                                    u:object_r:crash_vendor_data_file:s0
+
+# PERSIST
+/mnt/vendor/persist/wlan(/.*)?                                  u:object_r:persist_wlan_file:s0
+
+# SYSTEM
+/system/bin/mssconfig                                           u:object_r:mss_config_exec:s0
+
+# VENDOR
+/(vendor|system/vendor)/bin/mlog_qmi_service                    u:object_r:mlog_qmi_service_exec:s0
+/(vendor|system/vendor)/bin/tad                                 u:object_r:tad_exec:s0
+/(vendor|system/vendor)/bin/wvkbd                               u:object_r:vendor_wvkbd_exec:s0
+/(vendor|system/vendor)/usr/idc(/.*)?                           u:object_r:vendor_idc_file:s0
+
+/sbin/tad_static                                                u:object_r:rootfs:s0
+
+# BACKWARD COMPATIBILITY
+/bt_firmware                                                    u:object_r:bt_firmware_file:s0
+/firmware                                                       u:object_r:firmware_file:s0

@@ -13,8 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include device/sony/common-treble/BoardConfigTreble.mk
-
 PLATFORM_PATH := device/sony/yoshino-common
 
 ### BOARD
@@ -86,6 +84,12 @@ MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 
 ### AUDIO
+BOARD_USES_ALSA_AUDIO := true
+AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
+USE_XML_AUDIO_POLICY_CONF := 1
+
+
+### AUDIO
 # BOARD_SUPPORTS_QAHW := true
 BOARD_SUPPORTS_SOUND_TRIGGER := true
 BOARD_USES_SRS_TRUEMEDIA := false
@@ -104,13 +108,47 @@ USE_XML_AUDIO_POLICY_CONF := 1
 USE_LEGACY_AUDIO_DAEMON := false
 USE_LEGACY_AUDIO_MEASUREMENT := false
 
+### BOARD
+BOARD_USES_QCOM_HARDWARE := true
+BOARD_VENDOR := sony
+
 ### CAMERA
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_USES_MEDIA_EXTENSIONS := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 
+### CHARGER
+WITH_LINEAGE_CHARGER := false
+# system/core/healthd/Android.mk
+BOARD_CHARGER_DISABLE_INIT_BLANK := true
+BOARD_CHARGER_ENABLE_SUSPEND := true
+
+
+### DISPLAY
+# qcom/display-caf/msm8998/common.mk
+TARGET_USES_COLOR_METADATA := true
+TARGET_USES_HWC2 := true
+TARGET_USES_GRALLOC1 := true
+
+### DRM
+TARGET_ENABLE_MEDIADRM_64 := true
+
+### FILESYSTEM
+TARGET_FS_CONFIG_GEN := \
+    $(PLATFORM_PATH)/fs/config.aid \
+    $(PLATFORM_PATH)/fs/config.fs
+
 # frameworks/av/camera/Android.mk
 TARGET_USES_QTI_CAMERA_DEVICE := true
+
+### GRAPHICS
+USE_OPENGL_RENDERER := true
+BOARD_USES_ADRENO := true
+TARGET_USES_ION := true
+
+MAX_EGL_CACHE_KEY_SIZE := 12*1024
+MAX_EGL_CACHE_SIZE := 2048*1024
+
 
 ### WIFI
 BOARD_HAS_QCOM_WLAN := true
@@ -153,8 +191,18 @@ TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 TARGET_USES_OLD_MNC_FORMAT := true
 PROTOBUF_SUPPORTED := true
 
+### SEPOLICY
+include device/qcom/sepolicy-legacy-um/sepolicy.mk
+BOARD_SEPOLICY_DIRS += device/sony/common-treble/sepolicy/vendor
+
 ### TIMESERVICE
 BOARD_USES_QC_TIME_SERVICES := true
+
+### PARTITIONS
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
+# Build ext4 tools - system/vold
+TARGET_USERIMAGES_USE_EXT4 := true
+
 
 ### POWER HAL
 TARGET_USES_INTERACTION_BOOST := true
@@ -172,6 +220,16 @@ BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(PLATFORM_PATH)/sepolicy/private
 
 ### RECOVERY
 TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/ramdisk/fstab.recovery
+
+# RENDERSCRIPT
+OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+
+# Enable dynamic partition size
+PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
+
+# Split build properties
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
+
 
 ### SYSTEM PROPS
 # Platform-specific props, add more in device if needed
