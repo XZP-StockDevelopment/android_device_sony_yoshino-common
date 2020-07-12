@@ -581,6 +581,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(PLATFORM_PATH)/config/wfd/wfdconfig.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/wfdconfig.xml
 
+# Enable dynamic partition size
+PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
+
+# Split build properties
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
+
 # WIFI DISPLAY
 PRODUCT_PACKAGES += \
     libaacwrapper \

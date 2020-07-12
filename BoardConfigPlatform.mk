@@ -224,12 +224,6 @@ TARGET_RECOVERY_FSTAB := $(PLATFORM_PATH)/ramdisk/fstab.recovery
 # RENDERSCRIPT
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
-# Enable dynamic partition size
-PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
-
-# Split build properties
-BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
-
 
 ### SYSTEM PROPS
 # Platform-specific props, add more in device if needed
