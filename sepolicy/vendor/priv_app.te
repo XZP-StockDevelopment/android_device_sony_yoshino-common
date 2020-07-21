@@ -2,7 +2,3 @@
 
 get_prop(priv_app, vendor_semc_version_cust_active_prop)
 
-# Allow Settings to read and set theme_prop
-get_prop(priv_app, theme_prop)
-set_prop(priv_app, theme_prop)
-
