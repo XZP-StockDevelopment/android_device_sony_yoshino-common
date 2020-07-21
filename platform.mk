@@ -316,13 +316,11 @@ PRODUCT_PACKAGES += \
     vendor.display.config@1.9 \
     vendor.display.config@1.9_vendor
 
-# HIDL
+### HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
-    android.hidl.base@1.0_system \
     android.hidl.manager@1.0 \
-    android.hidl.manager@1.0-java
-
+    android.hidl.manager-V1.0-java
 # GPS
 PRODUCT_COPY_FILES += \
     $(PLATFORM_PATH)/config/gps/gps.conf:system/etc/gps.conf \
