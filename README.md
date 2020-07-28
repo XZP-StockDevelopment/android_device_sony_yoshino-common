@@ -15,4 +15,3 @@ Dependent repositories
     android_device_sony_common-treble
     android_kernel_sony_msm8998
 
-# This is NOT the MAIN, IN-USE TREE. The MAIN trees used in ROMs are private for now
