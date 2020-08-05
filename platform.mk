@@ -585,6 +585,9 @@ PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
 # Split build properties
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
+# Enable treble
+PRODUCT_FULL_TREBLE_OVERRIDE ?= true
+
 # WIFI DISPLAY
 PRODUCT_PACKAGES += \
     libaacwrapper \
