@@ -347,9 +347,16 @@
     <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
     <integer name="config_shutdownBatteryTemperature">600</integer>
 
-
-
+     <!-- Values for GPS configuration -->
+   
+    <string-array translatable="false" name="config_gpsParameters">
+        <item>NTP_SERVER=pool.ntp.org</item>
+        <item>SUPL_HOST=supl.google.com</item>
+        <item>SUPL_PORT=7275</item>
+        <item>SUPL_VER=0x20000</item>
+        <item>SUPL_ES=1</item>
+        <item>LPP_PROFILE=2</item>
+    </string-array>
 	
-
 
 </resources>
