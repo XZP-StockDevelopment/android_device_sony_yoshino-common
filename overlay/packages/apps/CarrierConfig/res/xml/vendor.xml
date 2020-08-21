@@ -1816,4 +1816,12 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <item value="3,11,9,10,15" />
         </string-array>
     </carrier_config>
+        <carrier_config>
+        <string name="gps.supl_host">supl.sonyericsson.com</string>
+        <string name="gps.supl_port">7275</string>
+        <string name="gps.supl_mode">1</string>
+        <string name="gps.supl_ver">0x20000</string>
+        <string name="gps.lpp_profile">2</string>
+        <string name="gps.a_glonass_pos_protocol_select">2</string>
+    </carrier_config>
 </carrier_config_list>
