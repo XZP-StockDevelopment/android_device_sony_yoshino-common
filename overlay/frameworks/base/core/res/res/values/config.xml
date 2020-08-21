@@ -347,13 +347,4 @@
     <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
     <integer name="config_shutdownBatteryTemperature">600</integer>
 
-     <!-- Values for GPS configuration -->
-   
-    <string-array translatable="false" name="config_gpsParameters">
-        <item>NTP_SERVER=time.google.com</item>
-        <item>SUPL_HOST=supl.sonyericsson.com</item>
-        <item>SUPL_PORT=7275</item>
-    </string-array>
-	
-
 </resources>
