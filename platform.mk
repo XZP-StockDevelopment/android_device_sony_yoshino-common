@@ -289,7 +289,14 @@ PRODUCT_PACKAGES += \
     libgeofencing \
     libgnss \
     libgnsspps \
-    libsynergy_loc_api
+    libsynergy_loc_api \
+    libloc_api_v02 \
+    libloc_ds_api \
+    libloc_core \
+    libgps.utils \
+    liblocation_api \
+    libloc_pla \
+
 
 
 # GRAPHICS
@@ -323,7 +330,6 @@ PRODUCT_PACKAGES += \
     android.hidl.manager-V1.0-java
 # GPS
 PRODUCT_COPY_FILES += \
-    $(PLATFORM_PATH)/config/gps/gps.conf:system/etc/gps.conf \
     $(PLATFORM_PATH)/config/gps/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf
 
 # HEALTH
