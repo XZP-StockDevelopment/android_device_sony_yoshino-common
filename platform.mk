@@ -275,12 +275,6 @@ PRODUCT_PACKAGES += \
     fs_config_files \
     fs_config_dirs
 
-# Gatekeeper
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl \
-    android.hardware.gatekeeper@1.0-service
-
-
 # GPS / Location
 PRODUCT_PACKAGES += \
     android.hardware.gnss@2.0-impl-qti \
@@ -296,8 +290,6 @@ PRODUCT_PACKAGES += \
     libgps.utils \
     liblocation_api \
     libloc_pla \
-
-
 
 # GRAPHICS
 PRODUCT_PACKAGES += \
@@ -378,11 +370,6 @@ PRODUCT_PACKAGES += \
 # ISRC
 PRODUCT_COPY_FILES += \
     $(PLATFORM_PATH)/config/irsc/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
-
-# Keymaster
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl \
-    android.hardware.keymaster@3.0-service
 
 # KEYLAYOUT
 PRODUCT_COPY_FILES += \
