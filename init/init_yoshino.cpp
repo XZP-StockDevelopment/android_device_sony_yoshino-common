@@ -37,7 +37,7 @@
 #include <sys/_system_properties.h>
 
 #include "vendor_init.h"
-#include "property_service.h"
+
 
 #include "ta.h"
 
@@ -46,7 +46,8 @@
 using android::base::GetProperty;
 using android::base::WaitForProperty;
 using android::base::ReadFileToString;
-using android::init::property_set;
+using android::base::SetProperty;
+
 
 using namespace std::chrono_literals;
 
