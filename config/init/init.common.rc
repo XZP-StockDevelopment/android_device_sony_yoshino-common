@@ -107,9 +107,9 @@ on post-fs-data
     chmod 0660 /sys/power/wake_unlock
 
     # DolbyAtmos
-    mkdir /data/vendor/dolby 0770 dolby dolby
-    chmod 0770 /data/vendor/dolby
-    chown dolby /data/vendor/dolby
+    # mkdir /data/vendor/dolby 0770 dolby dolby
+    #chmod 0770 /data/vendor/dolby
+    #chown dolby /data/vendor/dolby
 
     # QCOM Legacy camera stack
     mkdir /data/misc/camera 0770 camera camera
