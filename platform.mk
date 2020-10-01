@@ -381,8 +381,8 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service
 
 # Live  DISPLAY
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm
+#PRODUCT_PACKAGES += \
+#    vendor.lineage.livedisplay@2.0-service-sdm
 
 # MSM IRQ Balancer configuration file
 PRODUCT_COPY_FILES += \
