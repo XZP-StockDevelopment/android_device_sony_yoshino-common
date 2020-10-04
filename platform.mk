@@ -449,6 +449,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(PLATFORM_PATH)/config/power/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
+# QMI
+PRODUCT_PACKAGES += \
+    libqti_vndfwk_detect
+
 # QTI low power whitelist
 PRODUCT_COPY_FILES += \
     $(PLATFORM_PATH)/config/power/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml
