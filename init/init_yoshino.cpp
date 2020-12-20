@@ -92,7 +92,16 @@ static void load_properties(char *data, const char *filter)
                     if (strcmp(key, filter)) continue;
                 }
             }
-            property_override(key, value);
+            if (strcmp(key, "ro.build.description") == 0
+                || strcmp(key, "ro.build.version.incremental") == 0
+                || strcmp(key, "ro.build.tags") == 0
+                || strcmp(key, "ro.build.fingerprint") == 0
+                || strcmp(key, "ro.vendor.build.fingerprint") == 0
+                || strcmp(key, "ro.bootimage.build.fingerprint") == 0) {
+                LOG(INFO) << "Skipped prop: " << key;
+            } else {
+                property_override(key, value);
+            }
         }
     }
 }
