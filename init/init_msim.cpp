@@ -60,7 +60,7 @@ void target_load_properties()
             property_override("persist.radio.multisim.config", "dsds");
             property_override("ro.telephony.default_network", "9,0");
             property_override("persist.vendor.radio.block_allow_data", "0");
-            property_override("ro.build.fingerprint", "google/coral/coral:10/QQ3A.200805.001/6578210:user/release-keys");
+            property_override("ro.build.fingerprint", "google/redfin/redfin:11/RQ1A.201205.010/6953398:user/release-keys");
             property_override_dual("ro.product.model", "ro.vendor.product.model", "G8142");
             property_override_dual("ro.product.name", "ro.vendor.product.name", "maple_dsds");
             property_override_dual("ro.product.device", "ro.vendor.product.device", "maple_dsds");
@@ -69,7 +69,7 @@ void target_load_properties()
             property_override("ro.semc.product.model", "G8141");
             property_override("ro.telephony.default_network", "9");
             property_override("persist.vendor.radio.block_allow_data", "1");
-            property_override("ro.build.fingerprint", "google/coral/coral:10/QQ3A.200805.001/6578210:user/release-keys");
+            property_override("ro.build.fingerprint", "google/redfin/redfin:11/RQ1A.201205.010/6953398:user/release-keys");
             property_override_dual("ro.product.model", "ro.vendor.product.model", "G8141");
             property_override_dual("ro.product.name", "ro.vendor.product.name", "maple");
             property_override_dual("ro.product.device", "ro.vendor.product.device", "maple");
@@ -80,7 +80,7 @@ void target_load_properties()
             property_override("persist.radio.multisim.config", "dsds");
             property_override("ro.telephony.default_network", "9,0");
             property_override("persist.vendor.radio.block_allow_data", "0");
-            property_override("ro.build.fingerprint", "google/coral/coral:10/QQ3A.200805.001/6578210:user/release-keys");
+            property_override("ro.build.fingerprint", "google/redfin/redfin:11/RQ1A.201205.010/6953398:user/release-keys");
             property_override_dual("ro.product.model", "ro.vendor.product.model", "G8342");
             property_override_dual("ro.product.name", "ro.vendor.product.name", "poplar_dsds");
             property_override_dual("ro.product.device", "ro.vendor.product.device", "poplar_dsds");
@@ -89,7 +89,7 @@ void target_load_properties()
             property_override("ro.semc.product.model", "G8341");
             property_override("ro.telephony.default_network", "9");
             property_override("persist.vendor.radio.block_allow_data", "1");
-            property_override("ro.build.fingerprint", "google/coral/coral:10/QQ3A.200805.001/6578210:user/release-keys");
+            property_override("ro.build.fingerprint", "google/redfin/redfin:11/RQ1A.201205.010/6953398:user/release-keys");
             property_override_dual("ro.product.model", "ro.vendor.product.model", "G8341");
             property_override_dual("ro.product.name", "ro.vendor.product.name", "poplar");
             property_override_dual("ro.product.device", "ro.vendor.product.device", "poplar");
